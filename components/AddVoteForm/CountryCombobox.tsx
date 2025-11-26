@@ -21,21 +21,31 @@ export function CountryCombobox({
   onChange,
   countries,
   value,
+  error,
 }: {
   onChange: (value: string) => void
   countries: Country[]
   value: string
+  error?: string
 }) {
   const [open, setOpen] = React.useState(false)
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover
+      open={open}
+      onOpenChange={(isOpen) => {
+        setOpen(isOpen)
+        if (!isOpen) {
+          onChange(value || "") // forces validation when the popover closes
+        }
+      }}
+    >
       <PopoverTrigger asChild>
         <Button
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-full justify-between h-full"
+          className={"w-full justify-between h-full" + (error ? " border-2 border--danger" : "")}
           style={
             value ? { color: "black", fontWeight: 500 } : { color: "#8A8C90", fontWeight: "normal" }
           }

@@ -49,48 +49,53 @@ function AddVoteForm({ countries }: { countries: Country[] }) {
         className="flex flex-col md:flex-row gap-3 items-start"
       >
         {/* NAME */}
-        <div className="flex-1">
+        <div className="flex-1 w-full max-w-[500px] mx-auto">
           <input
             {...register("name")}
             type="text"
             placeholder="Name"
-            className="w-full rounded-md border px-3.5 py-[7px]"
-            style={errors?.name && { border: "2px solid red" }}
+            className={`w-full border px-3.5 py-[7px] ${errors?.name && "border-2 border--danger"}`}
           />
 
-          <p className="text-sm text-red-500 text-center min-h-8">{errors?.name?.message}</p>
+          <p className="text-sm text--danger text-center min-h-8">{errors?.name?.message}</p>
         </div>
 
         {/* EMAIL */}
-        <div className="flex-1">
+        <div className="flex-1 w-full max-w-[500px] mx-auto">
           <input
             {...register("email")}
             type="email"
             placeholder="Email"
-            className="w-full rounded-md border px-3.5 py-[7px]"
-            style={errors?.email && { border: "2px solid red" }}
+            className={`w-full max-w-[500px] mx-auto border px-3.5 py-[7px] ${
+              errors?.email && "border-2 border--danger"
+            }`}
           />
 
-          <p className="text-sm text-red-500 text-center min-h-8">{errors?.email?.message}</p>
+          <p className="text-sm text--danger text-center min-h-8">{errors?.email?.message}</p>
         </div>
 
         {/* COUNTRY */}
-        <div className="flex-1">
+        <div className="flex-1 w-full max-w-[500px] mx-auto">
           <Controller
             control={control}
             name="countryId"
             render={({ field: { onChange, value } }) => (
-              <CountryCombobox onChange={onChange} value={value} countries={countries} />
+              <CountryCombobox
+                onChange={onChange}
+                value={value}
+                countries={countries}
+                error={errors?.countryId?.message}
+              />
             )}
           />
 
-          <p className="text-sm text-red-500 text-center min-h-8">{errors?.countryId?.message}</p>
+          <p className="text-sm text--danger text-center min-h-8">{errors?.countryId?.message}</p>
         </div>
 
         <button
           type="submit"
           disabled={isSubmitting || !isValid}
-          className="col-auto w-30 flex bg-black text-white justify-center py-2 rounded items-center hover:bg-slate-900 disabled:bg-[#ededed] disabled:text-[#a3a3a3] cursor-pointer disabled:cursor-not-allowed font-semibold text-sm"
+          className="col-auto w-30 flex bg-black text-white justify-center py-2.5 rounded-xl items-center hover:bg-slate-900 disabled:bg-[#ededed] disabled:text-[#a3a3a3] cursor-pointer disabled:cursor-not-allowed font-semibold text-sm"
         >
           {isSubmitting ? "Loading..." : "Submit Vote"}
         </button>
