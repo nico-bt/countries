@@ -9,7 +9,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Loopstudio Voting App",
+  title: "Loop Country",
   description: "Vote for your favorite country",
   keywords: ["loopstudio", "voting", "countries"],
 }
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased max-w-[1440px] mx-auto`}>
+      <body className={`${inter.className} antialiased max-w-[1440px] mx-auto`}>
         <Header />
         {children}
       </body>
