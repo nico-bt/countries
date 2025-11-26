@@ -35,14 +35,17 @@ export function CountryCombobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-full justify-between h-full"
+          style={
+            value ? { color: "black", fontWeight: 500 } : { color: "#8A8C90", fontWeight: "normal" }
+          }
         >
-          {value ? countries.find((country) => country.id === +value)?.name : "Select country..."}
+          {value ? countries.find((country) => country.id === +value)?.name : "Country"}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
 
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-full p-0">
         <Command>
           <CommandInput placeholder="Search country..." className="h-9" />
           <CommandList>

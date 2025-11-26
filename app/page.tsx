@@ -6,16 +6,14 @@ export default async function Home() {
   const countries = await getAllCountries()
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <AddVoteForm countries={countries} />
+    <main className="flex w-full max-w-[1062px] mx-auto mt-10 flex-col p-4">
+      <AddVoteForm countries={countries} />
 
-        <h1>Top 10 Countries</h1>
-        <Suspense fallback={<div>Loading...</div>}>
-          <TopCountries />
-        </Suspense>
-      </main>
-    </div>
+      <h1>Top 10 Countries</h1>
+      <Suspense fallback={<div>Loading...</div>}>
+        <TopCountries />
+      </Suspense>
+    </main>
   )
 }
 
