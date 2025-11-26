@@ -6,6 +6,8 @@ import { AddVoteFormFields, addVoteSchema } from "@/utils/zodSchema"
 import { addVote } from "./actions"
 import { CountryCombobox } from "./CountryCombobox"
 import { Country } from "@/app/generated/prisma"
+import toast from "react-hot-toast"
+import { CircleCheck } from "lucide-react"
 
 function AddVoteForm({ countries }: { countries: Country[] }) {
   const {
@@ -36,11 +38,21 @@ function AddVoteForm({ countries }: { countries: Country[] }) {
     }
     if (result.success) {
       reset()
+      toast.success("Your vote was successfully submitted!", {
+        icon: <CircleCheck className="text-[#3FDE92] h-5 w-5" />,
+      })
     }
   }
 
   return (
     <div className="rounded-[20px] bg-white px-4 py-8 card-shadow">
+      {/* GENERAL ERROR from server action*/}
+      {errors?.root && (
+        <div className="text--danger text-center mb-12 border border--danger p-4 rounded-xl">
+          {errors.root.message}
+        </div>
+      )}
+
       <h1 className="text-sm font-bold mb-3.5">Vote for your favorite country</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
