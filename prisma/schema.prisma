@@ -36,4 +36,5 @@ model Country {
   subregion   String?
   flagUrl     String
   votes Vote[]
+  votesCount Int @default(0) //denormalization for faster counting
 }
