@@ -7,7 +7,7 @@ import { addVote } from "./actions"
 import { CountryCombobox } from "./CountryCombobox"
 import { Country } from "@/app/generated/prisma"
 import toast from "react-hot-toast"
-import { CircleCheck } from "lucide-react"
+import { CircleCheck, TriangleAlertIcon } from "lucide-react"
 
 function AddVoteForm({ countries }: { countries: Country[] }) {
   const {
@@ -61,7 +61,7 @@ function AddVoteForm({ countries }: { countries: Country[] }) {
         className="flex flex-col md:flex-row gap-3 items-start"
       >
         {/* NAME */}
-        <div className="flex-1 w-full max-w-[500px] mx-auto">
+        <div className="flex-1 w-full max-w-[500px] mx-auto relative">
           <input
             {...register("name")}
             type="text"
@@ -70,10 +70,13 @@ function AddVoteForm({ countries }: { countries: Country[] }) {
           />
 
           <p className="text-sm text--danger text-center min-h-8">{errors?.name?.message}</p>
+          {errors?.name && (
+            <TriangleAlertIcon className="absolute top-2 right-3 text--danger w-6 h-6" />
+          )}
         </div>
 
         {/* EMAIL */}
-        <div className="flex-1 w-full max-w-[500px] mx-auto">
+        <div className="flex-1 w-full max-w-[500px] mx-auto relative">
           <input
             {...register("email")}
             type="email"
@@ -84,10 +87,13 @@ function AddVoteForm({ countries }: { countries: Country[] }) {
           />
 
           <p className="text-sm text--danger text-center min-h-8">{errors?.email?.message}</p>
+          {errors?.email && (
+            <TriangleAlertIcon className="absolute top-2 right-3 text--danger w-6 h-6" />
+          )}
         </div>
 
         {/* COUNTRY */}
-        <div className="flex-1 w-full max-w-[500px] mx-auto">
+        <div className="flex-1 w-full max-w-[500px] mx-auto relative">
           <Controller
             control={control}
             name="countryId"
@@ -102,6 +108,9 @@ function AddVoteForm({ countries }: { countries: Country[] }) {
           />
 
           <p className="text-sm text--danger text-center min-h-8">{errors?.countryId?.message}</p>
+          {errors?.countryId && (
+            <TriangleAlertIcon className="absolute top-2 right-3 text--danger w-6 h-6" />
+          )}
         </div>
 
         <button
