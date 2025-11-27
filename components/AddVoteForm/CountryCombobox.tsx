@@ -57,7 +57,7 @@ export function CountryCombobox({
 
       <PopoverContent className="w-full p-0">
         <Command>
-          <CommandInput placeholder="Search country..." className="h-9" />
+          <CommandInput placeholder="Search country..." className="h-9 border-0" />
           <CommandList>
             <CommandEmpty>No country found.</CommandEmpty>
             <CommandGroup>
