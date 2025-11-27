@@ -10,8 +10,7 @@ const prisma = new PrismaClient({
   adapter,
 })
 
-const URL =
-  "https://restcountries.com/v3.1/independent?status=true&fields=cca3,flags,name,capital,region,subregion"
+const URL = "https://restcountries.com/v3.1/all?fields=cca3,flags,name,capital,region,subregion"
 
 async function main() {
   console.log("Fetching countries…")
