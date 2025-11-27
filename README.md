@@ -1,6 +1,6 @@
 # Country Vote
 
-### Live: 🔗 xxx
+### Live: 🔗https://countries-theta-jet.vercel.app/
 
 Techs used:
 - Nextjs
@@ -10,8 +10,9 @@ Techs used:
 - Server side validation: Zod
 - Database: Prisma ORM (Postgres) + cloud db (Neon)
   
+<br>
 
-## Comments
+## Comments  
 - Followed the "Next way" of using server actions to access the database directly from Server Components.  
 I did not create a separate API layer for client-side access.
 
@@ -19,7 +20,8 @@ I did not create a separate API layer for client-side access.
   
 - Used Neon instead of a local Docker database. This cloud instance can act as a shared live development/staging environment.
  
-  
+<br>
+    
 ## Entity Diagram
 <img width="905" height="1050" alt="image" src="https://github.com/user-attachments/assets/880f4ef0-2fa0-4b0c-99e0-4bca543337e1" />
 
@@ -61,14 +63,16 @@ I did not create a separate API layer for client-side access.
   The Figma layout places the search bar directly below the **Top 10 Countries** heading.  
   Because of this, I assumed the search functionality was meant to filter **only the Top 10 results**, not to search across the entire list of countries.  
   The search bar filters countries in-memory on the client. No additional backend calls are triggered.
-
+  
 ❤️ Hope you like it!  
 
 ---
+
 ## Notes for local setup 
 After cloning the repo, you’ll need to create a `.env` file with your database access keys.    
 If we were using a shared staging environment, this `.env` file could be provided privately via ClickUp, Slack, or another secure channel.  
-
+Or send me a messagge if you want to run locally.
+  
 ### Example `.env` file
 
 > ⚠️ Replace the values below with the project credentials.
