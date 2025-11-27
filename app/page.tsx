@@ -11,6 +11,7 @@ export default async function Home() {
       <AddVoteForm countries={countries} />
 
       <h1 className="font-bold text-[32px] mt-12 mb-6">Top 10 Most Voted Countries</h1>
+
       <Suspense fallback={<div>Loading...</div>}>
         <TopCountries />
       </Suspense>
