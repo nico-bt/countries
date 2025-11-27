@@ -58,7 +58,7 @@ function FilteredTopCountries({ countries }: { countries: Country[] }) {
                   <img
                     src={country.flagUrl}
                     alt={country.name}
-                    className="w-8 h-5 rounded-sm object-cover"
+                    className="w-8 h-5 object-cover border border-gray-300"
                   />
                   <span className="truncate">{country.name}</span>
                 </td>
@@ -69,7 +69,7 @@ function FilteredTopCountries({ countries }: { countries: Country[] }) {
 
                 <td className="min-w-40 truncate">{country.subregion}</td>
 
-                <td>{country.votesCount}</td>
+                <td>{country.votesCount.toLocaleString()}</td>
               </tr>
             ))}
           </tbody>
