@@ -23,7 +23,8 @@ I did not create a separate API layer for client-side access.
 <br>
     
 ## Entity Diagram
-<img width="905" height="1050" alt="image" src="https://github.com/user-attachments/assets/880f4ef0-2fa0-4b0c-99e0-4bca543337e1" />
+
+<img width="638" height="746" alt="diagram" src="https://github.com/user-attachments/assets/ac0f3189-a809-471f-b5bb-6ab776b60557" />
 
   
 ## Assumptions
